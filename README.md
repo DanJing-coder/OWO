@@ -11,7 +11,8 @@ The [illustrated Door walkthrough](examples/door/README.md) shows three world
 snapshots and the different answers that two conforming agents should reach.
 
 For other domains, explore the [example gallery and practical uses](examples/README.md):
-server maintenance, support tickets, and single-item inventory reservations.
+server maintenance, support tickets, inventory, greenhouse irrigation, robot
+pick and place, and parcel handoff.
 
 ## Install and try the Door example
 

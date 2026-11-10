@@ -1,0 +1,84 @@
+{
+  "owo_version": "0.1",
+  "entities": [
+    {
+      "id": "parcel_7",
+      "type": "Parcel"
+    },
+    {
+      "id": "courier_1",
+      "type": "Courier"
+    },
+    {
+      "id": "recipient_1",
+      "type": "Recipient"
+    }
+  ],
+  "relations": [
+    {
+      "subject": "courier_1",
+      "predicate": "carries",
+      "object": "parcel_7",
+      "value": true
+    },
+    {
+      "subject": "parcel_7",
+      "predicate": "addressed_to",
+      "object": "recipient_1",
+      "value": true
+    }
+  ],
+  "state": {
+    "parcel_7": {
+      "status": "out_for_delivery",
+      "proof_received": true
+    },
+    "recipient_1": {
+      "present": true
+    }
+  },
+  "actions": [
+    {
+      "id": "record_delivery",
+      "precondition": {
+        "all": [
+          {
+            "fact": {
+              "entity": "parcel_7",
+              "key": "status",
+              "equals": "out_for_delivery"
+            }
+          },
+          {
+            "fact": {
+              "entity": "parcel_7",
+              "key": "proof_received",
+              "equals": true
+            }
+          },
+          {
+            "fact": {
+              "entity": "recipient_1",
+              "key": "present",
+              "equals": true
+            }
+          },
+          {
+            "relation": {
+              "subject": "parcel_7",
+              "predicate": "addressed_to",
+              "object": "recipient_1"
+            }
+          }
+        ]
+      },
+      "effects": [
+        {
+          "entity": "parcel_7",
+          "key": "status",
+          "value": "delivered"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "owo_version": "0.1",
+  "entities": [
+    {"id": "bed_1", "type": "PlantBed"},
+    {"id": "pump_1", "type": "WaterPump"},
+    {"id": "tank_1", "type": "WaterTank"}
+  ],
+  "relations": [
+    {"subject": "pump_1", "predicate": "irrigates", "object": "bed_1", "value": true},
+    {"subject": "tank_1", "predicate": "supplies", "object": "pump_1", "value": true}
+  ],
+  "state": {
+    "bed_1": {"soil_condition": "dry"},
+    "pump_1": {"running": false},
+    "tank_1": {"water_available": true}
+  },
+  "actions": [
+    {
+      "id": "start_irrigation",
+      "precondition": {"all": [
+        {"fact": {"entity": "bed_1", "key": "soil_condition", "equals": "dry"}},
+        {"fact": {"entity": "pump_1", "key": "running", "equals": false}},
+        {"fact": {"entity": "tank_1", "key": "water_available", "equals": true}},
+        {"relation": {"subject": "pump_1", "predicate": "irrigates", "object": "bed_1"}},
+        {"relation": {"subject": "tank_1", "predicate": "supplies", "object": "pump_1"}}
+      ]},
+      "effects": [
+        {"entity": "pump_1", "key": "running", "value": true}
+      ]
+    },
+    {
+      "id": "stop_irrigation",
+      "precondition": {"all": [
+        {"fact": {"entity": "pump_1", "key": "running", "equals": true}},
+        {"fact": {"entity": "bed_1", "key": "soil_condition", "equals": "wet"}}
+      ]},
+      "effects": [
+        {"entity": "pump_1", "key": "running", "value": false}
+      ]
+    }
+  ]
+}

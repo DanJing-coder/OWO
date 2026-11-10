@@ -13,6 +13,19 @@ for the three truth values, then try a workflow closer to your own domain.
 | [Support ticket](support-ticket/README.md) | Is a resolved customer ticket ready to close? | Notification record, then ticket `status` |
 | [Inventory](inventory/README.md) | Is one item available for an approved order? | Reservation fields for that item |
 
+## Physical-world examples
+
+These cases use observed facts and symbolic transitions. They do not control
+devices or certify that a physical action succeeded.
+
+![Greenhouse, robot, and parcel handoff examples](../docs/images/physical-world.svg)
+
+| Example | Question answered | What the action changes |
+|---|---|---|
+| [Greenhouse irrigation](greenhouse/README.md) | Is the bed dry and the pump ready? Has a wet reading been observed before stopping? | Pump `running` state |
+| [Robot pick and place](robot-pick-place/README.md) | Can the assigned robot pick and then place a crate? | Gripper, location, and holder state |
+| [Parcel handoff](parcel-handoff/README.md) | Is there explicit delivery evidence for the addressed recipient? | Parcel `status` |
+
 ## Where this MVP fits
 
 - **Agent and simulator fixtures:** Give separate implementations the same
@@ -37,7 +50,8 @@ for the three truth values, then try a workflow closer to your own domain.
 4. Observe the real outcome and construct a fresh snapshot. Use `apply_action`
    only for a predicted or simulated state transition, not as proof of success.
 
-OWO v0.1 does not call external APIs, send notifications, reserve stock in a
-database, perform arithmetic, update relations, or coordinate concurrent
-actors. For irreversible or shared-resource operations, use the transaction,
-authorization, and observation mechanisms of the real system.
+OWO v0.1 does not call external APIs, operate hardware, send notifications,
+reserve stock in a database, perform arithmetic, update relations, or
+coordinate concurrent actors. For irreversible or shared-resource operations,
+use the transaction, authorization, safety, and observation mechanisms of the
+real system.

@@ -1,0 +1,46 @@
+{
+  "owo_version": "0.1",
+  "entities": [
+    {"id": "robot_1", "type": "Robot"},
+    {"id": "crate_1", "type": "Crate"},
+    {"id": "station_1", "type": "PackingStation"}
+  ],
+  "relations": [
+    {"subject": "robot_1", "predicate": "assigned_to", "object": "crate_1", "value": true},
+    {"subject": "crate_1", "predicate": "destination", "object": "station_1", "value": true}
+  ],
+  "state": {
+    "robot_1": {"gripper_empty": true},
+    "crate_1": {"location": "pickup_zone", "held_by": null}
+  },
+  "actions": [
+    {
+      "id": "pick_crate",
+      "precondition": {"all": [
+        {"fact": {"entity": "robot_1", "key": "gripper_empty", "equals": true}},
+        {"fact": {"entity": "crate_1", "key": "location", "equals": "pickup_zone"}},
+        {"fact": {"entity": "crate_1", "key": "held_by", "equals": null}},
+        {"relation": {"subject": "robot_1", "predicate": "assigned_to", "object": "crate_1"}}
+      ]},
+      "effects": [
+        {"entity": "robot_1", "key": "gripper_empty", "value": false},
+        {"entity": "crate_1", "key": "location", "value": "in_gripper"},
+        {"entity": "crate_1", "key": "held_by", "value": "robot_1"}
+      ]
+    },
+    {
+      "id": "place_crate",
+      "precondition": {"all": [
+        {"fact": {"entity": "robot_1", "key": "gripper_empty", "equals": false}},
+        {"fact": {"entity": "crate_1", "key": "location", "equals": "in_gripper"}},
+        {"fact": {"entity": "crate_1", "key": "held_by", "equals": "robot_1"}},
+        {"relation": {"subject": "crate_1", "predicate": "destination", "object": "station_1"}}
+      ]},
+      "effects": [
+        {"entity": "robot_1", "key": "gripper_empty", "value": true},
+        {"entity": "crate_1", "key": "location", "value": "packing_station"},
+        {"entity": "crate_1", "key": "held_by", "value": null}
+      ]
+    }
+  ]
+}

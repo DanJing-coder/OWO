@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">Three physical-world OWO examples</title>
+  <desc id="desc">Greenhouse irrigation checks a dry bed and available water before a symbolic pump transition, then waits for a wet reading. A robot plan picks and places a crate by changing state facts. A parcel handoff is blocked until delivery proof is recorded. None of these JSON actions operates hardware.</desc>
+  <rect width="1200" height="560" fill="#f8fafc"/>
+  <text x="44" y="61" fill="#0f172a" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700">Physical-world plans, explicit observations</text>
+  <text x="44" y="96" fill="#475569" font-family="Arial, Helvetica, sans-serif" font-size="18">OWO describes when a transition is justified and what a predicted state would look like.</text>
+
+  <rect x="42" y="130" width="350" height="350" rx="18" fill="#fff" stroke="#5eead4" stroke-width="2"/>
+  <rect x="42" y="130" width="350" height="8" rx="4" fill="#0d9488"/>
+  <text x="62" y="181" fill="#0f766e" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Greenhouse</text>
+  <text x="62" y="219" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="16">bed = dry · water available</text>
+  <path d="M 76 239 L 76 270" stroke="#0d9488" stroke-width="3"/>
+  <path d="M 76 275 L 69 264 L 83 264 Z" fill="#0d9488"/>
+  <rect x="62" y="284" width="310" height="53" rx="10" fill="#f0fdfa"/>
+  <text x="78" y="318" fill="#0f172a" font-family="monospace" font-size="16">start_irrigation → true</text>
+  <text x="62" y="370" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="16">pump.running = true</text>
+  <text x="62" y="409" fill="#0f766e" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">Observe wet soil before stop</text>
+  <text x="62" y="447" fill="#64748b" font-family="Arial, Helvetica, sans-serif" font-size="15">Sensor reading comes from outside OWO</text>
+
+  <rect x="425" y="130" width="350" height="350" rx="18" fill="#fff" stroke="#93c5fd" stroke-width="2"/>
+  <rect x="425" y="130" width="350" height="8" rx="4" fill="#2563eb"/>
+  <text x="445" y="181" fill="#1d4ed8" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Robot pick and place</text>
+  <text x="445" y="219" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="16">empty gripper · crate at pickup</text>
+  <path d="M 459 239 L 459 270" stroke="#2563eb" stroke-width="3"/>
+  <path d="M 459 275 L 452 264 L 466 264 Z" fill="#2563eb"/>
+  <rect x="445" y="284" width="310" height="53" rx="10" fill="#eff6ff"/>
+  <text x="461" y="318" fill="#0f172a" font-family="monospace" font-size="16">pick_crate → true</text>
+  <text x="445" y="370" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="16">crate.held_by = robot_1</text>
+  <text x="445" y="409" fill="#1d4ed8" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">Then place at packing station</text>
+  <text x="445" y="447" fill="#64748b" font-family="Arial, Helvetica, sans-serif" font-size="15">Motion and perception stay external</text>
+
+  <rect x="808" y="130" width="350" height="350" rx="18" fill="#fff" stroke="#fcd34d" stroke-width="2"/>
+  <rect x="808" y="130" width="350" height="8" rx="4" fill="#d97706"/>
+  <text x="828" y="181" fill="#92400e" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Parcel handoff</text>
+  <text x="828" y="219" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="16">out for delivery · no proof yet</text>
+  <path d="M 842 239 L 842 270" stroke="#d97706" stroke-width="3"/>
+  <path d="M 842 275 L 835 264 L 849 264 Z" fill="#d97706"/>
+  <rect x="828" y="284" width="310" height="53" rx="10" fill="#fffbeb"/>
+  <text x="844" y="318" fill="#0f172a" font-family="monospace" font-size="16">record_delivery → false</text>
+  <text x="828" y="370" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="16">status stays out_for_delivery</text>
+  <text x="828" y="409" fill="#92400e" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">Verified proof enables record</text>
+  <text x="828" y="447" fill="#64748b" font-family="Arial, Helvetica, sans-serif" font-size="15">Evidence checking stays external</text>
+
+  <rect x="42" y="503" width="1116" height="39" rx="10" fill="#e2e8f0"/>
+  <text x="60" y="529" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="15">These are symbolic JSON snapshots. Real devices, people, and evidence require separate execution and observation.</text>
+</svg>
