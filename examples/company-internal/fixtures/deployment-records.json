@@ -1,0 +1,7 @@
+{
+  "release": {"status": "candidate"},
+  "ci": {"tests_passed": true},
+  "change": {"approval_received": true},
+  "monitoring": {"service_health": "healthy"},
+  "deployment": {}
+}

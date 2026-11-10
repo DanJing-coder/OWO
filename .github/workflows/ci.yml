@@ -16,4 +16,5 @@ jobs:
       - run: python -m pip install -e '.[test]'
       - run: python -m pytest
       - run: for file in examples/*/*.json; do owo validate "$file"; done
+      - run: python examples/company-internal/build_deployment_world.py examples/company-internal/fixtures/deployment-records.json | owo validate -
       - run: owo evaluate examples/door/world.json open_door

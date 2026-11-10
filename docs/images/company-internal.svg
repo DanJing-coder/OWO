@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">Three company-internal OWO workflows</title>
+  <desc id="desc">A deployment gate combines CI, approval, and monitoring facts before a planned release. Incident triage waits for an on-call acknowledgement. IT asset checkout waits for confirmed handover. The real systems remain authoritative.</desc>
+  <rect width="1200" height="560" fill="#f8fafc"/>
+  <text x="44" y="61" fill="#0f172a" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700">Shared facts, repeatable workflow decisions</text>
+  <text x="44" y="96" fill="#475569" font-family="Arial, Helvetica, sans-serif" font-size="18">An internal agent can evaluate a proposed transition from a validated snapshot.</text>
+
+  <rect x="42" y="130" width="350" height="350" rx="18" fill="#fff" stroke="#93c5fd" stroke-width="2"/>
+  <rect x="42" y="130" width="350" height="8" rx="4" fill="#2563eb"/>
+  <text x="62" y="181" fill="#1d4ed8" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Deployment gate</text>
+  <text x="62" y="219" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="16">CI passed · approved · healthy</text>
+  <path d="M 76 239 L 76 270" stroke="#2563eb" stroke-width="3"/>
+  <path d="M 76 275 L 69 264 L 83 264 Z" fill="#2563eb"/>
+  <rect x="62" y="284" width="310" height="53" rx="10" fill="#eff6ff"/>
+  <text x="78" y="318" fill="#0f172a" font-family="monospace" font-size="16">plan_deployment → true</text>
+  <text x="62" y="370" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="16">release.status = ready</text>
+  <text x="62" y="409" fill="#1d4ed8" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">Wait for deployment result</text>
+  <text x="62" y="447" fill="#64748b" font-family="Arial, Helvetica, sans-serif" font-size="15">No observed result → unknown</text>
+
+  <rect x="425" y="130" width="350" height="350" rx="18" fill="#fff" stroke="#c4b5fd" stroke-width="2"/>
+  <rect x="425" y="130" width="350" height="8" rx="4" fill="#7c3aed"/>
+  <text x="445" y="181" fill="#6d28d9" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Incident triage</text>
+  <text x="445" y="219" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="16">alert confirmed · no ack yet</text>
+  <path d="M 459 239 L 459 270" stroke="#7c3aed" stroke-width="3"/>
+  <path d="M 459 275 L 452 264 L 466 264 Z" fill="#7c3aed"/>
+  <rect x="445" y="284" width="310" height="53" rx="10" fill="#f5f3ff"/>
+  <text x="461" y="318" fill="#0f172a" font-family="monospace" font-size="16">start_investigation</text>
+  <text x="445" y="370" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="16">result = unknown</text>
+  <text x="445" y="409" fill="#6d28d9" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">Acknowledgement enables it</text>
+  <text x="445" y="447" fill="#64748b" font-family="Arial, Helvetica, sans-serif" font-size="15">Paging remains external</text>
+
+  <rect x="808" y="130" width="350" height="350" rx="18" fill="#fff" stroke="#fcd34d" stroke-width="2"/>
+  <rect x="808" y="130" width="350" height="8" rx="4" fill="#d97706"/>
+  <text x="828" y="181" fill="#92400e" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">IT asset checkout</text>
+  <text x="828" y="219" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="16">approved · handover pending</text>
+  <path d="M 842 239 L 842 270" stroke="#d97706" stroke-width="3"/>
+  <path d="M 842 275 L 835 264 L 849 264 Z" fill="#d97706"/>
+  <rect x="828" y="284" width="310" height="53" rx="10" fill="#fffbeb"/>
+  <text x="844" y="318" fill="#0f172a" font-family="monospace" font-size="16">record_checkout → false</text>
+  <text x="828" y="370" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="16">asset remains available</text>
+  <text x="828" y="409" fill="#92400e" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">Confirmed handover enables it</text>
+  <text x="828" y="447" fill="#64748b" font-family="Arial, Helvetica, sans-serif" font-size="15">Asset register stays authoritative</text>
+
+  <rect x="42" y="503" width="1116" height="39" rx="10" fill="#e2e8f0"/>
+  <text x="60" y="529" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="15">OWO makes decisions inspectable. Source systems still execute, authorize, and record the real workflow.</text>
+</svg>

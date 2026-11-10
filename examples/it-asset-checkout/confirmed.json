@@ -1,0 +1,117 @@
+{
+  "owo_version": "0.1",
+  "entities": [
+    {
+      "id": "laptop_12",
+      "type": "Laptop"
+    },
+    {
+      "id": "request_8",
+      "type": "CheckoutRequest"
+    },
+    {
+      "id": "employee_5",
+      "type": "Employee"
+    }
+  ],
+  "relations": [
+    {
+      "subject": "laptop_12",
+      "predicate": "requested_for",
+      "object": "request_8",
+      "value": true
+    },
+    {
+      "subject": "request_8",
+      "predicate": "requested_by",
+      "object": "employee_5",
+      "value": true
+    }
+  ],
+  "state": {
+    "laptop_12": {
+      "status": "available",
+      "assigned_to": null
+    },
+    "request_8": {
+      "status": "pending",
+      "approved": true,
+      "handover_confirmed": true
+    }
+  },
+  "actions": [
+    {
+      "id": "record_checkout",
+      "precondition": {
+        "all": [
+          {
+            "fact": {
+              "entity": "laptop_12",
+              "key": "status",
+              "equals": "available"
+            }
+          },
+          {
+            "fact": {
+              "entity": "laptop_12",
+              "key": "assigned_to",
+              "equals": null
+            }
+          },
+          {
+            "fact": {
+              "entity": "request_8",
+              "key": "status",
+              "equals": "pending"
+            }
+          },
+          {
+            "fact": {
+              "entity": "request_8",
+              "key": "approved",
+              "equals": true
+            }
+          },
+          {
+            "fact": {
+              "entity": "request_8",
+              "key": "handover_confirmed",
+              "equals": true
+            }
+          },
+          {
+            "relation": {
+              "subject": "laptop_12",
+              "predicate": "requested_for",
+              "object": "request_8"
+            }
+          },
+          {
+            "relation": {
+              "subject": "request_8",
+              "predicate": "requested_by",
+              "object": "employee_5"
+            }
+          }
+        ]
+      },
+      "effects": [
+        {
+          "entity": "laptop_12",
+          "key": "status",
+          "value": "checked_out"
+        },
+        {
+          "entity": "laptop_12",
+          "key": "assigned_to",
+          "value": "employee_5"
+        },
+        {
+          "entity": "request_8",
+          "key": "status",
+          "value": "fulfilled"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "owo_version": "0.1",
+  "entities": [
+    {"id": "release_42", "type": "Release"},
+    {"id": "service_billing", "type": "Service"}
+  ],
+  "relations": [
+    {"subject": "release_42", "predicate": "targets", "object": "service_billing", "value": true}
+  ],
+  "state": {
+    "release_42": {"status": "candidate", "tests_passed": true, "approval_received": true},
+    "service_billing": {"health": "healthy"}
+  },
+  "actions": [
+    {
+      "id": "plan_deployment",
+      "precondition": {"all": [
+        {"fact": {"entity": "release_42", "key": "status", "equals": "candidate"}},
+        {"fact": {"entity": "release_42", "key": "tests_passed", "equals": true}},
+        {"fact": {"entity": "release_42", "key": "approval_received", "equals": true}},
+        {"fact": {"entity": "service_billing", "key": "health", "equals": "healthy"}},
+        {"relation": {"subject": "release_42", "predicate": "targets", "object": "service_billing"}}
+      ]},
+      "effects": [
+        {"entity": "release_42", "key": "status", "value": "ready"}
+      ]
+    },
+    {
+      "id": "record_deployment",
+      "precondition": {"all": [
+        {"fact": {"entity": "release_42", "key": "status", "equals": "ready"}},
+        {"fact": {"entity": "release_42", "key": "deployment_succeeded", "equals": true}}
+      ]},
+      "effects": [
+        {"entity": "release_42", "key": "status", "value": "deployed"}
+      ]
+    }
+  ]
+}

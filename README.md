@@ -14,6 +14,10 @@ For other domains, explore the [example gallery and practical uses](examples/REA
 server maintenance, support tickets, inventory, greenhouse irrigation, robot
 pick and place, and parcel handoff.
 
+For internal operations, see [company-internal workflows](examples/company-internal/README.md)
+covering deployment gates, incident triage, and IT asset checkout, including
+an offline adapter from source records to an OWO world.
+
 ## Install and try the Door example
 
 Python 3.9 or newer is required.

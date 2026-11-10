@@ -1,0 +1,30 @@
+{
+  "owo_version": "0.1",
+  "entities": [
+    {"id": "incident_42", "type": "Incident"},
+    {"id": "service_billing", "type": "Service"},
+    {"id": "team_oncall", "type": "OnCallTeam"}
+  ],
+  "relations": [
+    {"subject": "incident_42", "predicate": "affects", "object": "service_billing", "value": true},
+    {"subject": "service_billing", "predicate": "owned_by", "object": "team_oncall", "value": true}
+  ],
+  "state": {
+    "incident_42": {"status": "open", "alert_confirmed": true}
+  },
+  "actions": [
+    {
+      "id": "start_investigation",
+      "precondition": {"all": [
+        {"fact": {"entity": "incident_42", "key": "status", "equals": "open"}},
+        {"fact": {"entity": "incident_42", "key": "alert_confirmed", "equals": true}},
+        {"fact": {"entity": "incident_42", "key": "oncall_acknowledged", "equals": true}},
+        {"relation": {"subject": "incident_42", "predicate": "affects", "object": "service_billing"}},
+        {"relation": {"subject": "service_billing", "predicate": "owned_by", "object": "team_oncall"}}
+      ]},
+      "effects": [
+        {"entity": "incident_42", "key": "status", "value": "investigating"}
+      ]
+    }
+  ]
+}

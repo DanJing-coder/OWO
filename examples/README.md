@@ -26,6 +26,19 @@ devices or certify that a physical action succeeded.
 | [Robot pick and place](robot-pick-place/README.md) | Can the assigned robot pick and then place a crate? | Gripper, location, and holder state |
 | [Parcel handoff](parcel-handoff/README.md) | Is there explicit delivery evidence for the addressed recipient? | Parcel `status` |
 
+## Company-internal workflows
+
+The [internal workflow guide](company-internal/README.md) includes a runnable
+record adapter and shows how to map facts from existing company systems.
+
+![Deployment, incident, and IT asset workflow examples](../docs/images/company-internal.svg)
+
+| Example | Question answered | What the action changes |
+|---|---|---|
+| [Deployment gate](deployment-gate/README.md) | Are test, approval, and health facts present before planning a release? | Release `status`; waits for observed deployment outcome |
+| [Incident triage](incident-triage/README.md) | Has the on-call team acknowledged a confirmed alert? | Incident `status` |
+| [IT asset checkout](it-asset-checkout/README.md) | Was an approved laptop handover confirmed? | Asset assignment and request `status` |
+
 ## Where this MVP fits
 
 - **Agent and simulator fixtures:** Give separate implementations the same
