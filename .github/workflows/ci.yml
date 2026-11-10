@@ -15,5 +15,5 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install -e '.[test]'
       - run: python -m pytest
-      - run: owo validate examples/door/world.json
+      - run: for file in examples/*/*.json; do owo validate "$file"; done
       - run: owo evaluate examples/door/world.json open_door

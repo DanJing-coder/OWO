@@ -1,0 +1,37 @@
+{
+  "owo_version": "0.1",
+  "entities": [
+    {"id": "ticket_204", "type": "SupportTicket"},
+    {"id": "customer_9", "type": "Customer"}
+  ],
+  "relations": [
+    {"subject": "ticket_204", "predicate": "submitted_by", "object": "customer_9", "value": true}
+  ],
+  "state": {
+    "ticket_204": {"status": "open", "resolved": true, "customer_notified": false}
+  },
+  "actions": [
+    {
+      "id": "record_notification",
+      "precondition": {"all": [
+        {"fact": {"entity": "ticket_204", "key": "status", "equals": "open"}},
+        {"fact": {"entity": "ticket_204", "key": "resolved", "equals": true}},
+        {"fact": {"entity": "ticket_204", "key": "customer_notified", "equals": false}}
+      ]},
+      "effects": [
+        {"entity": "ticket_204", "key": "customer_notified", "value": true}
+      ]
+    },
+    {
+      "id": "close_ticket",
+      "precondition": {"all": [
+        {"fact": {"entity": "ticket_204", "key": "status", "equals": "open"}},
+        {"fact": {"entity": "ticket_204", "key": "resolved", "equals": true}},
+        {"fact": {"entity": "ticket_204", "key": "customer_notified", "equals": true}}
+      ]},
+      "effects": [
+        {"entity": "ticket_204", "key": "status", "value": "closed"}
+      ]
+    }
+  ]
+}

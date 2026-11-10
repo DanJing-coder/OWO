@@ -1,0 +1,36 @@
+{
+  "owo_version": "0.1",
+  "entities": [
+    {"id": "server_1", "type": "Server", "attributes": {"label": "API host"}},
+    {"id": "catalog_api", "type": "Service"}
+  ],
+  "relations": [
+    {"subject": "server_1", "predicate": "hosts", "object": "catalog_api", "value": true}
+  ],
+  "state": {
+    "server_1": {"status": "running", "maintenance_approved": true}
+  },
+  "actions": [
+    {
+      "id": "begin_restart",
+      "precondition": {"all": [
+        {"fact": {"entity": "server_1", "key": "status", "equals": "running"}},
+        {"fact": {"entity": "server_1", "key": "maintenance_approved", "equals": true}}
+      ]},
+      "effects": [
+        {"entity": "server_1", "key": "status", "value": "restarting"}
+      ]
+    },
+    {
+      "id": "complete_restart",
+      "precondition": {"all": [
+        {"fact": {"entity": "server_1", "key": "status", "equals": "restarting"}},
+        {"fact": {"entity": "server_1", "key": "healthcheck_passed", "equals": true}}
+      ]},
+      "effects": [
+        {"entity": "server_1", "key": "status", "value": "running"},
+        {"entity": "server_1", "key": "maintenance_approved", "value": false}
+      ]
+    }
+  ]
+}

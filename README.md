@@ -10,6 +10,9 @@ when its precondition is explicitly `true`.
 The [illustrated Door walkthrough](examples/door/README.md) shows three world
 snapshots and the different answers that two conforming agents should reach.
 
+For other domains, explore the [example gallery and practical uses](examples/README.md):
+server maintenance, support tickets, and single-item inventory reservations.
+
 ## Install and try the Door example
 
 Python 3.9 or newer is required.
@@ -47,6 +50,7 @@ opened = apply_action(world, "open_door")  # original world is unchanged
 - [Draft 2020-12 JSON Schema](src/owo/schemas/owo-v0.1.schema.json)
 - [Door example](examples/door/world.json)
 - [Illustrated Door walkthrough](examples/door/README.md)
+- [Example gallery and practical uses](examples/README.md)
 - [Conformance tests](tests/test_conformance.py)
 - [How to contribute](CONTRIBUTING.md)
 

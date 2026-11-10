@@ -1,0 +1,40 @@
+{
+  "owo_version": "0.1",
+  "entities": [
+    {"id": "item_42", "type": "StockItem"},
+    {"id": "order_17", "type": "Order"}
+  ],
+  "relations": [
+    {"subject": "item_42", "predicate": "requested_for", "object": "order_17", "value": true}
+  ],
+  "state": {
+    "item_42": {"available": true, "reserved": false, "reserved_for": null},
+    "order_17": {"approved": true}
+  },
+  "actions": [
+    {
+      "id": "reserve_item",
+      "precondition": {"all": [
+        {"fact": {"entity": "item_42", "key": "available", "equals": true}},
+        {"fact": {"entity": "item_42", "key": "reserved", "equals": false}},
+        {"fact": {"entity": "order_17", "key": "approved", "equals": true}},
+        {"relation": {"subject": "item_42", "predicate": "requested_for", "object": "order_17"}}
+      ]},
+      "effects": [
+        {"entity": "item_42", "key": "reserved", "value": true},
+        {"entity": "item_42", "key": "reserved_for", "value": "order_17"}
+      ]
+    },
+    {
+      "id": "release_item",
+      "precondition": {"all": [
+        {"fact": {"entity": "item_42", "key": "reserved", "equals": true}},
+        {"fact": {"entity": "item_42", "key": "reserved_for", "equals": "order_17"}}
+      ]},
+      "effects": [
+        {"entity": "item_42", "key": "reserved", "value": false},
+        {"entity": "item_42", "key": "reserved_for", "value": null}
+      ]
+    }
+  ]
+}
