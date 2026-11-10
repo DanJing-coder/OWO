@@ -32,11 +32,17 @@ proposal rather than silently changing v0.1 semantics.
 5. Run the local checks:
 
    ```sh
+   python -m pip install --upgrade pip
    python -m pip install -e '.[test]'
    python -m pytest
    owo validate examples/door/world.json
    owo evaluate examples/door/world.json open_door
    ```
+
+   Editable installs require a pip version with PEP 660 support. The pip
+   bundled with some Python 3.9 installations (including pip 21.2.4) is too
+   old, which is why the upgrade comes first. For a read-only trial, use
+   `python -m pip install '.[test]'` instead.
 
 ## Open a pull request
 

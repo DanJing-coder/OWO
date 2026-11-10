@@ -15,7 +15,7 @@ snapshots and the different answers that two conforming agents should reach.
 Python 3.9 or newer is required.
 
 ```sh
-python -m pip install -e '.[test]'
+python -m pip install '.[test]'
 owo validate examples/door/world.json
 owo evaluate examples/door/world.json open_door
 owo apply examples/door/world.json open_door -o opened.json

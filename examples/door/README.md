@@ -23,7 +23,7 @@ worlds. The action definition is identical in each file.
 Run the example from the repository root after installing the package:
 
 ```sh
-python -m pip install -e '.[test]'
+python -m pip install '.[test]'
 owo validate examples/door/world.json
 owo evaluate examples/door/world.json open_door
 owo evaluate examples/door/locked.json open_door
