@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "open-world-ontology"
+version = "0.1.0"
+description = "Open World Ontology v0.1 reference SDK and CLI"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "Apache-2.0"
+dependencies = ["jsonschema>=4.18,<5"]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<9"]
+
+[project.scripts]
+owo = "owo.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+owo = ["schemas/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

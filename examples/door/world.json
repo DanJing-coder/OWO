@@ -1,0 +1,28 @@
+{
+  "owo_version": "0.1",
+  "entities": [
+    {"id": "front_door", "type": "Door", "attributes": {"label": "Front door"}},
+    {"id": "hall", "type": "Room"}
+  ],
+  "relations": [
+    {"subject": "front_door", "predicate": "leads_to", "object": "hall", "value": true}
+  ],
+  "state": {
+    "front_door": {"open": false, "locked": false}
+  },
+  "actions": [
+    {
+      "id": "open_door",
+      "precondition": {"all": [
+        {"fact": {"entity": "front_door", "key": "locked", "equals": false}},
+        {"fact": {"entity": "front_door", "key": "open", "equals": false}}
+      ]},
+      "effects": [{"entity": "front_door", "key": "open", "value": true}]
+    },
+    {
+      "id": "close_door",
+      "precondition": {"fact": {"entity": "front_door", "key": "open", "equals": true}},
+      "effects": [{"entity": "front_door", "key": "open", "value": false}]
+    }
+  ]
+}

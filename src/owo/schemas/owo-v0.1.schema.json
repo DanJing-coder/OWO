@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:owo:schema:0.1",
+  "title": "Open World Ontology v0.1 world",
+  "type": "object",
+  "required": ["owo_version", "entities", "relations", "state", "actions"],
+  "properties": {
+    "owo_version": {"const": "0.1"},
+    "entities": {"type": "array", "items": {"$ref": "#/$defs/entity"}},
+    "relations": {"type": "array", "items": {"$ref": "#/$defs/relation"}},
+    "state": {
+      "type": "object",
+      "propertyNames": {"minLength": 1},
+      "additionalProperties": {
+        "type": "object",
+        "propertyNames": {"minLength": 1},
+        "additionalProperties": {"$ref": "#/$defs/scalar"}
+      }
+    },
+    "actions": {"type": "array", "items": {"$ref": "#/$defs/action"}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "name": {"type": "string", "minLength": 1},
+    "scalar": {"type": ["null", "boolean", "number", "string"]},
+    "entity": {
+      "type": "object",
+      "required": ["id", "type"],
+      "properties": {
+        "id": {"$ref": "#/$defs/name"},
+        "type": {"$ref": "#/$defs/name"},
+        "attributes": {"type": "object"}
+      },
+      "additionalProperties": false
+    },
+    "relation": {
+      "type": "object",
+      "required": ["subject", "predicate", "object", "value"],
+      "properties": {
+        "subject": {"$ref": "#/$defs/name"},
+        "predicate": {"$ref": "#/$defs/name"},
+        "object": {"$ref": "#/$defs/name"},
+        "value": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "stateFact": {
+      "type": "object",
+      "required": ["entity", "key", "equals"],
+      "properties": {
+        "entity": {"$ref": "#/$defs/name"},
+        "key": {"$ref": "#/$defs/name"},
+        "equals": {"$ref": "#/$defs/scalar"}
+      },
+      "additionalProperties": false
+    },
+    "relationFact": {
+      "type": "object",
+      "required": ["subject", "predicate", "object"],
+      "properties": {
+        "subject": {"$ref": "#/$defs/name"},
+        "predicate": {"$ref": "#/$defs/name"},
+        "object": {"$ref": "#/$defs/name"}
+      },
+      "additionalProperties": false
+    },
+    "condition": {
+      "oneOf": [
+        {
+          "type": "object", "required": ["fact"],
+          "properties": {"fact": {"$ref": "#/$defs/stateFact"}},
+          "additionalProperties": false
+        },
+        {
+          "type": "object", "required": ["relation"],
+          "properties": {"relation": {"$ref": "#/$defs/relationFact"}},
+          "additionalProperties": false
+        },
+        {
+          "type": "object", "required": ["not"],
+          "properties": {"not": {"$ref": "#/$defs/condition"}},
+          "additionalProperties": false
+        },
+        {
+          "type": "object", "required": ["all"],
+          "properties": {"all": {"type": "array", "items": {"$ref": "#/$defs/condition"}}},
+          "additionalProperties": false
+        },
+        {
+          "type": "object", "required": ["any"],
+          "properties": {"any": {"type": "array", "items": {"$ref": "#/$defs/condition"}}},
+          "additionalProperties": false
+        }
+      ]
+    },
+    "effect": {
+      "type": "object",
+      "required": ["entity", "key", "value"],
+      "properties": {
+        "entity": {"$ref": "#/$defs/name"},
+        "key": {"$ref": "#/$defs/name"},
+        "value": {"$ref": "#/$defs/scalar"}
+      },
+      "additionalProperties": false
+    },
+    "action": {
+      "type": "object",
+      "required": ["id", "effects"],
+      "properties": {
+        "id": {"$ref": "#/$defs/name"},
+        "precondition": {"$ref": "#/$defs/condition"},
+        "effects": {"type": "array", "items": {"$ref": "#/$defs/effect"}}
+      },
+      "additionalProperties": false
+    }
+  }
+}
