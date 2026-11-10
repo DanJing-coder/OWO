@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">The four parts of an OWO v0.1 world document</title>
+  <desc id="desc">A world contains entities, relations, state, and actions. The Door example declares a front door and hall, a leads-to relation, the door's current state, and an open-door action.</desc>
+  <rect width="1200" height="560" fill="#f8fafc"/>
+  <text x="44" y="64" fill="#0f172a" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700">One world, four connected sections</text>
+  <text x="44" y="98" fill="#475569" font-family="Arial, Helvetica, sans-serif" font-size="18">The same entity IDs link definitions, facts, and action effects.</text>
+
+  <rect x="42" y="132" width="264" height="328" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="42" y="132" width="264" height="8" rx="4" fill="#2563eb"/>
+  <text x="62" y="180" fill="#1d4ed8" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">1  Entities</text>
+  <text x="62" y="210" fill="#475569" font-family="Arial, Helvetica, sans-serif" font-size="15">What exists?</text>
+  <rect x="62" y="233" width="224" height="73" rx="10" fill="#eff6ff"/>
+  <text x="78" y="261" fill="#0f172a" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">front_door</text>
+  <text x="78" y="286" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="15">type: Door</text>
+  <rect x="62" y="322" width="224" height="73" rx="10" fill="#eff6ff"/>
+  <text x="78" y="350" fill="#0f172a" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">hall</text>
+  <text x="78" y="375" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="15">type: Room</text>
+  <text x="62" y="430" fill="#64748b" font-family="Arial, Helvetica, sans-serif" font-size="14">IDs are stable within this file.</text>
+
+  <rect x="326" y="132" width="264" height="328" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="326" y="132" width="264" height="8" rx="4" fill="#7c3aed"/>
+  <text x="346" y="180" fill="#6d28d9" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">2  Relations</text>
+  <text x="346" y="210" fill="#475569" font-family="Arial, Helvetica, sans-serif" font-size="15">How are things connected?</text>
+  <rect x="346" y="233" width="224" height="162" rx="10" fill="#f5f3ff"/>
+  <text x="362" y="265" fill="#0f172a" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">front_door</text>
+  <path d="M 373 282 L 373 333" fill="none" stroke="#7c3aed" stroke-width="3"/>
+  <path d="M 373 337 L 366 326 L 380 326 Z" fill="#7c3aed"/>
+  <text x="395" y="316" fill="#6d28d9" font-family="Arial, Helvetica, sans-serif" font-size="15">leads_to = true</text>
+  <text x="362" y="366" fill="#0f172a" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">hall</text>
+  <text x="346" y="430" fill="#64748b" font-family="Arial, Helvetica, sans-serif" font-size="14">A missing triple is unknown.</text>
+
+  <rect x="610" y="132" width="264" height="328" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="610" y="132" width="264" height="8" rx="4" fill="#0891b2"/>
+  <text x="630" y="180" fill="#0e7490" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">3  State</text>
+  <text x="630" y="210" fill="#475569" font-family="Arial, Helvetica, sans-serif" font-size="15">What is true now?</text>
+  <rect x="630" y="233" width="224" height="162" rx="10" fill="#ecfeff"/>
+  <text x="646" y="265" fill="#0f172a" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">front_door</text>
+  <text x="646" y="304" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="17">open: <tspan font-weight="700">false</tspan></text>
+  <text x="646" y="340" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="17">locked: <tspan font-weight="700">false</tspan></text>
+  <text x="630" y="430" fill="#64748b" font-family="Arial, Helvetica, sans-serif" font-size="14">A missing property is unknown.</text>
+
+  <rect x="894" y="132" width="264" height="328" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="894" y="132" width="264" height="8" rx="4" fill="#ea580c"/>
+  <text x="914" y="180" fill="#c2410c" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">4  Actions</text>
+  <text x="914" y="210" fill="#475569" font-family="Arial, Helvetica, sans-serif" font-size="15">How may state change?</text>
+  <rect x="914" y="233" width="224" height="162" rx="10" fill="#fff7ed"/>
+  <text x="930" y="265" fill="#0f172a" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">open_door</text>
+  <text x="930" y="304" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="15">Needs: unlocked, closed</text>
+  <text x="930" y="340" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="15">Sets: open = true</text>
+  <text x="914" y="430" fill="#64748b" font-family="Arial, Helvetica, sans-serif" font-size="14">Effects change a copied world.</text>
+
+  <rect x="42" y="486" width="1116" height="50" rx="12" fill="#e2e8f0"/>
+  <text x="60" y="517" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="16">OWO v0.1 is a JSON snapshot: action definitions describe possible transitions; they do not operate a physical door.</text>
+</svg>

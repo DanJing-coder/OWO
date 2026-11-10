@@ -5,6 +5,11 @@ dynamic state, and grounded actions. The Python package is a reference SDK and
 CLI. Missing facts have the third truth value `unknown`, so an action runs only
 when its precondition is explicitly `true`.
 
+![Diagram of entities, relations, state, and actions in one OWO world](docs/images/world-model.svg)
+
+The [illustrated Door walkthrough](examples/door/README.md) shows three world
+snapshots and the different answers that two conforming agents should reach.
+
 ## Install and try the Door example
 
 Python 3.9 or newer is required.
@@ -41,7 +46,9 @@ opened = apply_action(world, "open_door")  # original world is unchanged
 - [RFC-0004: Validation, compatibility, and CLI](docs/rfc/RFC-0004-conformance.md)
 - [Draft 2020-12 JSON Schema](src/owo/schemas/owo-v0.1.schema.json)
 - [Door example](examples/door/world.json)
+- [Illustrated Door walkthrough](examples/door/README.md)
 - [Conformance tests](tests/test_conformance.py)
+- [How to contribute](CONTRIBUTING.md)
 
 This release intentionally covers literal entities and actions in one world
 document. It does not define inference, parameterized actions, transport, or

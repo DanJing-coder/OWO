@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Three outcomes of evaluating the open_door action</title>
+  <desc id="desc">When the door is closed and unlocked, open_door evaluates true and sets open to true. When locked is true, it evaluates false and is blocked. When locked is absent, it evaluates unknown and is also blocked.</desc>
+  <rect width="1200" height="650" fill="#f8fafc"/>
+  <text x="44" y="60" fill="#0f172a" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700">Can the agent open the door?</text>
+  <text x="44" y="94" fill="#475569" font-family="Arial, Helvetica, sans-serif" font-size="18">The same action definition produces three distinct, verifiable answers.</text>
+
+  <rect x="40" y="130" width="352" height="460" rx="18" fill="#fff" stroke="#16a34a" stroke-width="2"/>
+  <rect x="40" y="130" width="352" height="64" rx="18" fill="#dcfce7"/>
+  <rect x="40" y="174" width="352" height="20" fill="#dcfce7"/>
+  <text x="60" y="169" fill="#166534" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">1  Ready</text>
+  <text x="60" y="226" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">Known state</text>
+  <text x="60" y="257" fill="#334155" font-family="monospace" font-size="16">open = false</text>
+  <text x="60" y="284" fill="#334155" font-family="monospace" font-size="16">locked = false</text>
+  <path d="M 216 312 L 216 345" stroke="#16a34a" stroke-width="3"/>
+  <path d="M 216 349 L 209 338 L 223 338 Z" fill="#16a34a"/>
+  <text x="60" y="382" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="16">Precondition:</text>
+  <text x="60" y="408" fill="#0f172a" font-family="monospace" font-size="15">unlocked AND closed</text>
+  <rect x="60" y="434" width="100" height="37" rx="18" fill="#16a34a"/>
+  <text x="85" y="459" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">true</text>
+  <text x="60" y="505" fill="#166534" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">Apply effect</text>
+  <text x="60" y="535" fill="#334155" font-family="monospace" font-size="16">open = true</text>
+  <text x="60" y="565" fill="#64748b" font-family="Arial, Helvetica, sans-serif" font-size="14">The original snapshot stays intact.</text>
+
+  <rect x="424" y="130" width="352" height="460" rx="18" fill="#fff" stroke="#dc2626" stroke-width="2"/>
+  <rect x="424" y="130" width="352" height="64" rx="18" fill="#fee2e2"/>
+  <rect x="424" y="174" width="352" height="20" fill="#fee2e2"/>
+  <text x="444" y="169" fill="#991b1b" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">2  Locked</text>
+  <text x="444" y="226" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">Known state</text>
+  <text x="444" y="257" fill="#334155" font-family="monospace" font-size="16">open = false</text>
+  <text x="444" y="284" fill="#334155" font-family="monospace" font-size="16">locked = true</text>
+  <path d="M 600 312 L 600 345" stroke="#dc2626" stroke-width="3"/>
+  <path d="M 600 349 L 593 338 L 607 338 Z" fill="#dc2626"/>
+  <text x="444" y="382" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="16">Precondition:</text>
+  <text x="444" y="408" fill="#0f172a" font-family="monospace" font-size="15">unlocked AND closed</text>
+  <rect x="444" y="434" width="100" height="37" rx="18" fill="#dc2626"/>
+  <text x="469" y="459" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">false</text>
+  <text x="444" y="505" fill="#991b1b" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">Action blocked</text>
+  <text x="444" y="535" fill="#334155" font-family="monospace" font-size="16">open = false</text>
+  <text x="444" y="565" fill="#64748b" font-family="Arial, Helvetica, sans-serif" font-size="14">A known lock prevents opening.</text>
+
+  <rect x="808" y="130" width="352" height="460" rx="18" fill="#fff" stroke="#d97706" stroke-width="2"/>
+  <rect x="808" y="130" width="352" height="64" rx="18" fill="#fef3c7"/>
+  <rect x="808" y="174" width="352" height="20" fill="#fef3c7"/>
+  <text x="828" y="169" fill="#92400e" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">3  Unobserved lock</text>
+  <text x="828" y="226" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">Partial state</text>
+  <text x="828" y="257" fill="#334155" font-family="monospace" font-size="16">open = false</text>
+  <text x="828" y="284" fill="#334155" font-family="monospace" font-size="16">locked = missing</text>
+  <path d="M 984 312 L 984 345" stroke="#d97706" stroke-width="3"/>
+  <path d="M 984 349 L 977 338 L 991 338 Z" fill="#d97706"/>
+  <text x="828" y="382" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="16">Precondition:</text>
+  <text x="828" y="408" fill="#0f172a" font-family="monospace" font-size="15">unlocked AND closed</text>
+  <rect x="828" y="434" width="114" height="37" rx="18" fill="#b45309"/>
+  <text x="843" y="459" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">unknown</text>
+  <text x="828" y="505" fill="#92400e" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">Action blocked</text>
+  <text x="828" y="535" fill="#334155" font-family="monospace" font-size="16">open = false</text>
+  <text x="828" y="565" fill="#64748b" font-family="Arial, Helvetica, sans-serif" font-size="14">Missing evidence is not false.</text>
+
+  <text x="44" y="628" fill="#475569" font-family="Arial, Helvetica, sans-serif" font-size="16">Only a true precondition authorizes apply_action. False and unknown both leave the world unchanged.</text>
+</svg>

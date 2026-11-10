@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Three-valued logic in OWO</title>
+  <desc id="desc">True means a fact is explicitly known to match; false means it is explicitly known not to match; unknown means the fact is absent. In strong Kleene logic, all of true and unknown is unknown, all of false and unknown is false, and any of true and unknown is true.</desc>
+  <rect width="1200" height="500" fill="#f8fafc"/>
+  <text x="44" y="61" fill="#0f172a" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700">Missing is a third answer</text>
+  <text x="44" y="94" fill="#475569" font-family="Arial, Helvetica, sans-serif" font-size="18">OWO evaluates facts with strong Kleene logic.</text>
+
+  <rect x="44" y="130" width="350" height="197" rx="17" fill="#fff" stroke="#16a34a" stroke-width="2"/>
+  <rect x="62" y="150" width="104" height="39" rx="19" fill="#16a34a"/>
+  <text x="91" y="176" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">true</text>
+  <text x="62" y="226" fill="#0f172a" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">Explicitly matches</text>
+  <text x="62" y="260" fill="#334155" font-family="monospace" font-size="15">locked: false</text>
+  <text x="62" y="291" fill="#475569" font-family="Arial, Helvetica, sans-serif" font-size="15">Test: locked equals false</text>
+
+  <rect x="424" y="130" width="350" height="197" rx="17" fill="#fff" stroke="#dc2626" stroke-width="2"/>
+  <rect x="442" y="150" width="104" height="39" rx="19" fill="#dc2626"/>
+  <text x="468" y="176" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">false</text>
+  <text x="442" y="226" fill="#0f172a" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">Explicitly differs</text>
+  <text x="442" y="260" fill="#334155" font-family="monospace" font-size="15">locked: true</text>
+  <text x="442" y="291" fill="#475569" font-family="Arial, Helvetica, sans-serif" font-size="15">Test: locked equals false</text>
+
+  <rect x="804" y="130" width="350" height="197" rx="17" fill="#fff" stroke="#d97706" stroke-width="2"/>
+  <rect x="822" y="150" width="124" height="39" rx="19" fill="#b45309"/>
+  <text x="839" y="176" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">unknown</text>
+  <text x="822" y="226" fill="#0f172a" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">No value supplied</text>
+  <text x="822" y="260" fill="#334155" font-family="monospace" font-size="15">locked: (absent)</text>
+  <text x="822" y="291" fill="#475569" font-family="Arial, Helvetica, sans-serif" font-size="15">Test: locked equals false</text>
+
+  <rect x="44" y="354" width="1110" height="113" rx="16" fill="#e2e8f0"/>
+  <text x="64" y="389" fill="#0f172a" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">How unknown combines with other facts</text>
+  <text x="64" y="427" fill="#334155" font-family="monospace" font-size="16">all(true, unknown) = unknown</text>
+  <text x="438" y="427" fill="#334155" font-family="monospace" font-size="16">all(false, unknown) = false</text>
+  <text x="823" y="427" fill="#334155" font-family="monospace" font-size="16">any(true, unknown) = true</text>
+</svg>
